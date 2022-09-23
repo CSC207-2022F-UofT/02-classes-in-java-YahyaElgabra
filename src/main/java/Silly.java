@@ -73,15 +73,14 @@ public class Silly implements Comparable<Silly>{
     }
 
     /**
-     * TODO (Task 1): Create another constructor that takes in TWO parameters,
-     *       both of which are strings.
-     *       Afterwards, set this.name to the concatenation of both
-     *       strings (e.g. this.name = [first string] + [second string]).
-     *       Make sure you document this method!
+     *
+     * @param a
+     * @param b
+     * change the name to a + b
      */
-
-
-
+    public Silly(String a, String b) {
+        this.name = a + b;
+    }
 
 
     public static void main(String[] args) {
@@ -116,7 +115,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -133,7 +132,7 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public String toString(){
-        // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -148,11 +147,6 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public boolean equals(Object o) {
-        /**
-         * TODO (Task 4): Complete the body of this method!
-         *                We've started it by checking the type of o for you.
-         *                You just need to return true if the names are equal.
-         */
         if (!(o instanceof Silly)){
             return false;
         }
@@ -161,6 +155,10 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+        if (other.name.equals(this.name)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -185,22 +183,10 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public int compareTo(Silly other) {
-        /**
-         * TODO (Task 5): Implement the body of this method.
-         *                A positive number should be returned if this.name
-         *                is longer than other.name, a negative number if
-         *                other.name is longer than this.name, and 0 if
-         *                the lengths are equal.
-         *                You can get the length of a string by using the
-         *                .length() method.
-         */
+        return this.name.length() - other.name.length();
     }
 
     /*
-     * TODO (Task 6): Submit the changes you made on GitHub!
-     *                When you submit it, go to the 'Actions' tab. You should
-     *                be able to see this exercise being autograded!
-     *
      *                You can click on the ongoing action to see more details.
      *                If the tests don't pass, look at the results and revise
      *                accordingly.
